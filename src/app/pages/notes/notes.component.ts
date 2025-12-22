@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './notes.component.html',
   styleUrl: './notes.component.scss'
 })
-export class MainPageComponent {
+export class NotesComponent {
  noteList: Note[] = [
     {
       "id": 1,
