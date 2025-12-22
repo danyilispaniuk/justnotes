@@ -6,8 +6,8 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-main',
   imports: [CommonModule, NoteComponent],
-  templateUrl: './main.component.html',
-  styleUrl: './main.component.scss'
+  templateUrl: './notes.component.html',
+  styleUrl: './notes.component.scss'
 })
 export class MainPageComponent {
  noteList: Note[] = [
