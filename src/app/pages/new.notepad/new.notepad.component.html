@@ -6,6 +6,7 @@
                 [ngClass]="{'error-input': signupForm.controls['username'].invalid && 
                     signupForm.controls['username'].touched && 
                     signupForm.get('username')?.value}"> -->
+        <span>Name: </span>
         <input id="notepad-name" type="text" formControlName="name" placeholder="Name" required>
         <button id="submit" type="submit" class="sign-up-btn">Save</button>
     </form>
