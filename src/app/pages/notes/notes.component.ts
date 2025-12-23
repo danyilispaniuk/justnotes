@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { NoteComponent } from '../../components/note/note.component';
-import { Note } from '../../services/interfaces/note';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NoteComponent } from '../../components/note/note.component';
+import { NoteService } from '../../services/note.service';
+import { Note } from '../../services/interfaces/note';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +11,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './notes.component.scss'
 })
 export class NotesComponent {
- noteList: Note[] = [
+  constructor(
+    private noteService: NoteService
+  ){}
+
+  noteList: Note[] = [
     {
       "id": 1,
       "header": "First Note",
@@ -36,4 +41,16 @@ export class NotesComponent {
       "created": new Date().toISOString()
     }
   ]
+
+  ngOnInit(): void {
+    console.log(this.noteList)
+    this.noteService.getNotes().subscribe(response => {
+      console.log("responce: ", response);
+      this.noteList = response;
+      this.noteList.forEach((value: any, index: number) => {
+        value.notes = value.notes.split(' ').slice(0, 30).join(' ');
+        console.log(value.notes);
+      });
+    });
+  }
 }
