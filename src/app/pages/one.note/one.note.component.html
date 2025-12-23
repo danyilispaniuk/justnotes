@@ -1,0 +1,19 @@
+<div id="body">
+    <div id="note">
+        <div class="container">
+            <input type="text" [value]="note.header" [readonly]="isReadOnly">
+        </div>
+        <div class="container">
+            <div>Updated: {{ note.created }}</div>
+        </div>
+        <div class="container">
+            <textarea type="text" [value]="note.notes" [readonly]="isReadOnly"></textarea>
+        </div>
+    </div>
+    <div class="container">
+        <button>Edit</button>
+    </div>
+    <div class="container">
+        <button>Save changes</button>
+    </div>
+</div>

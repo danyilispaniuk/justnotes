@@ -1,5 +1,9 @@
-<div class="note">
-  <h3>{{ note.header }}</h3>
-  <p>{{ note.notes }}</p>
-  <small>Updated: {{ note.created }}</small>
-</div>
+<a class="note-link"
+        [routerLink]="['/note/', note.id]"
+        [attr.href]="'/note/' + note.id">
+  <div class="note">
+    <h3>{{ note.header }}</h3>
+    <p>{{ note.notes }}</p>
+    <small>Updated: {{ note.created }}</small>
+  </div>
+</a>

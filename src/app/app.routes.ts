@@ -9,6 +9,13 @@ const routeConfig: Routes = [
         title: 'Notes'
     },
     {
+        path: 'notes',
+        loadComponent: () =>
+        import('./pages/notes/notes.component')
+            .then(c => c.NotesComponent),
+        title: 'Notes'
+    },
+    {
         path: 'notepads',
         loadComponent: () =>
         import('./pages/notepads/notepads.component')
@@ -16,13 +23,34 @@ const routeConfig: Routes = [
         title: 'Notepads'
     },
     {
+        path: 'note',
+        loadComponent: () =>
+        import('./pages/one.note/one.note.component')
+            .then(c => c.OneNoteComponent),
+        title: 'Create new notepad'
+    },
+    {
+        path: 'note/:id',
+        loadComponent: () =>
+        import('./pages/one.note/one.note.component')
+            .then(c => c.OneNoteComponent),
+        title: 'Create new notepad'
+    },
+    // {
+    //     path: 'notepad',
+    //     loadComponent: () =>
+    //     import('./pages/one.notepad/new.notepad.component')
+    //         .then(c => c.OneNotepadComponent),
+    //     title: 'Create new note'
+    // },
+    {
         path: 'new_notepad',
         loadComponent: () =>
         import('./pages/new.notepad/new.notepad.component')
             .then(c => c.NewNotepadComponent),
         title: 'Create new notepad'
     },
-        {
+    {
         path: 'new_note',
         loadComponent: () =>
         import('./pages/new.note/new.note.component')
