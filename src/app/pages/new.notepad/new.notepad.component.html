@@ -1,0 +1,12 @@
+<div id="body">
+    <h1>Create a new notepad</h1>
+    <!-- <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"> -->
+    <form>
+        <!-- <input id="username" type="text" formControlName="username" placeholder="Enter your username" required
+                [ngClass]="{'error-input': signupForm.controls['username'].invalid && 
+                    signupForm.controls['username'].touched && 
+                    signupForm.get('username')?.value}"> -->
+        <input id="notepad-name" type="text" formControlName="name" placeholder="Name" required>
+        <button id="submit" type="submit" class="sign-up-btn">Save</button>
+    </form>
+</div>

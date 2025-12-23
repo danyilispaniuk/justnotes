@@ -1,0 +1,26 @@
+<div id="body">
+    <h1>Create a new note</h1>
+    <!-- <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"> -->
+    <form>
+        <!-- <input id="username" type="text" formControlName="username" placeholder="Enter your username" required
+                [ngClass]="{'error-input': signupForm.controls['username'].invalid && 
+                    signupForm.controls['username'].touched && 
+                    signupForm.get('username')?.value}"> -->
+        <div class="container">
+            <span>Header: </span>
+            <input id="heaader" type="text" formControlName="name" placeholder="Header" required>
+        </div>
+        <div class="container">
+            <span>Notepad: </span>
+            <input id="notepadId" type="text" formControlName="name" placeholder="Notepad" required>
+        </div>
+        <div class="container">
+            <textarea class="form-control" aria-label="With textarea" formControlName="text" placeholder="Write here new notes..."></textarea>
+        </div>
+        <div class="container">
+            <button id="submit" type="submit" class="sign-up-btn">Save</button>
+            <button id="submit" type="discard" class="sign-up-btn">Discard</button>
+        </div>
+        
+    </form>
+</div>
