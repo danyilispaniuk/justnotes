@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Notepad } from '../../services/interfaces/notepad';
 import { NotepadComponent } from '../../components/notepad/notepad.component';
+import { NotepadService } from '../../services/notepad.service';
 
 @Component({
   selector: 'app-notepads',
@@ -10,6 +11,10 @@ import { NotepadComponent } from '../../components/notepad/notepad.component';
   styleUrl: './notepads.component.scss'
 })
 export class NotepadsComponent {
+  constructor(
+    private notepadService: NotepadService
+  ){}
+
   notepadList: Notepad[] = [
       {
         "id": 1,
@@ -36,4 +41,12 @@ export class NotepadsComponent {
         "updated": new Date().toISOString()
       }
     ]
+
+  ngOnInit(): void {
+    console.log(this.notepadList)
+    this.notepadService.getNotepads().subscribe(response => {
+      console.log("responce: ", response);
+      this.notepadList = response;
+    });
+  }
 }
