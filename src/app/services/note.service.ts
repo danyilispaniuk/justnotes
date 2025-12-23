@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Note } from './interfaces/note';
+import { NewNote } from './interfaces/new.note';
 import { env } from '../../enviroments/env';
 
 @Injectable({
@@ -23,5 +24,9 @@ export class NoteService {
 
   getNotesByNotepad(id: string): Observable<any> {
     return this.http.get<Note[]>(this.requestByNotepad + id);
+  }
+
+  createNote(payload: NewNote): Observable<any> {
+    return this.http.post(this.request, payload);
   }
 }

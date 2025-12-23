@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule  } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NewNotepad } from '../../services/interfaces/new.notepad';
 import { NotepadService } from '../../services/notepad.service';
@@ -35,8 +35,6 @@ export class NewNotepadComponent {
       next: response => {
         console.log("Success")
         console.log(response)
-        // this.notepadService.setSession(response.token, response.user.id)
-        // console.log("Session is set up")
         this.router.navigate(['/notepad/'+ response.id]);
       },
       error: err => {
