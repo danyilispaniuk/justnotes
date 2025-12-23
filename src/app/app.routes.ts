@@ -36,13 +36,20 @@ const routeConfig: Routes = [
             .then(c => c.OneNoteComponent),
         title: 'Create new notepad'
     },
-    // {
-    //     path: 'notepad',
-    //     loadComponent: () =>
-    //     import('./pages/one.notepad/new.notepad.component')
-    //         .then(c => c.OneNotepadComponent),
-    //     title: 'Create new note'
-    // },
+    {
+        path: 'notepad',
+        loadComponent: () =>
+        import('./pages/one.notepad/one.notepad.component')
+            .then(c => c.OneNotepadComponent),
+        title: 'Note'
+    },
+    {
+        path: 'notepad/:id',
+        loadComponent: () =>
+        import('./pages/one.notepad/one.notepad.component')
+            .then(c => c.OneNotepadComponent),
+        title: 'Notepad'
+    },
     {
         path: 'new_notepad',
         loadComponent: () =>

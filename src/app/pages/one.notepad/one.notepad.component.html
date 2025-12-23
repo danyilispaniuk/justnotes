@@ -1,0 +1,21 @@
+<div id="body">
+    <div id="notepad">
+        <div class="container">
+            <input id="notepad-name" type="text" [value]="notepad.name" [readonly]="isReadOnly">
+        </div>
+        <div class="container">
+            <button>Edit</button>
+        </div>
+        <div class="container">
+            <button>Save changes</button>
+            <button>Discard changes</button>
+        </div>
+        <div class="container">
+            <div>Updated: {{ notepad.created }}</div>
+        </div>
+    </div>
+    <h2>Notes</h2>
+    <div class="notes-grid">
+        <app-note *ngFor="let note of noteList" [note]="note" />
+    </div>
+</div>

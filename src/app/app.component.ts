@@ -6,7 +6,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterModule, FooterComponent, NavigationComponent],
+  imports: [RouterOutlet, RouterModule, NavigationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
