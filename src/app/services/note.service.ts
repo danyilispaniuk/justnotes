@@ -8,16 +8,20 @@ import { env } from '../../enviroments/env';
   providedIn: 'root'
 })
 export class NoteService {
-  private requestNotes = `${env.api.notes}`;
-  // private request = `${env.api.}/`;
+  private request = `${env.api.notes}`;
+  private requestByNotepad = `${env.api.notepad_notes}`;
 
   constructor(private http: HttpClient) { }
 
   getNotes(): Observable<any> {
-    return this.http.get<Note[]>(this.requestNotes);
+    return this.http.get<Note[]>(this.request);
   }
 
   getNote(id: string): Observable<any> {
-    return this.http.get<Note>(this.requestNotes + id);
+    return this.http.get<Note>(this.request + id);
+  }
+
+  getNotesByNotepad(id: string): Observable<any> {
+    return this.http.get<Note[]>(this.requestByNotepad + id);
   }
 }

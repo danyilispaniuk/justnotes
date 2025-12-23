@@ -1,8 +1,12 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NoteComponent } from '../../components/note/note.component';
 import { Note } from '../../services/interfaces/note';
 import { Notepad } from '../../services/interfaces/notepad';
+import { NotepadService } from '../../services/notepad.service';
+import { NoteService } from '../../services/note.service';
+
 
 @Component({
   selector: 'app-one.notepad',
@@ -11,7 +15,15 @@ import { Notepad } from '../../services/interfaces/notepad';
   styleUrl: './one.notepad.component.scss'
 })
 export class OneNotepadComponent {
+  constructor(
+    private notepadService: NotepadService,
+    private noteService: NoteService,
+    private route: ActivatedRoute
+  ){}
+
+  notepadId!: string;
   isReadOnly: boolean = true;
+
   notepad: Notepad = {
     id: 54,
     name: "testing notepad",
@@ -45,4 +57,20 @@ export class OneNotepadComponent {
         "created": new Date().toISOString()
       }
     ]
+  
+  ngOnInit(){
+    this.route.paramMap.subscribe(params => {
+        this.notepadId = params.get('id')!;
+        console.log('Note ID:', this.notepadId);
+        this.notepadService.getNotepad(this.notepadId).subscribe(response => {
+          console.log(response);
+          this.notepad = response;
+        });
+
+        this.noteService.getNotesByNotepad(this.notepadId).subscribe(response => {
+          console.log(response);
+          this.noteList = response;
+        });
+    });
+  }
 }
