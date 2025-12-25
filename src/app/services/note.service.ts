@@ -29,4 +29,8 @@ export class NoteService {
   createNote(payload: NewNote): Observable<any> {
     return this.http.post(this.request, payload);
   }
+
+  updateNote(payload: NewNote, id: string): Observable<any> {
+    return this.http.put(this.request + id, payload);
+  }
 }

@@ -36,7 +36,7 @@ export class NewNoteComponent {
       notes: this.noteForm.value.notes
     }
 
-      this.noteService.createNote(payload).subscribe({
+    this.noteService.createNote(payload).subscribe({
       next: response => {
         console.log("Success")
         console.log(response)
@@ -50,6 +50,6 @@ export class NewNoteComponent {
           console.log("UNEXPECTED ERROR: ", err.error.message);
         }
       }
-    });    
+    });
   }
 }

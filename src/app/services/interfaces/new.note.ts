@@ -1,6 +1,6 @@
 export interface NewNote {
-    id: null,
-    notepadId: string,
+    id: string | null,
+    notepadId: string | null,
     header: string,
     notes: string,
 }

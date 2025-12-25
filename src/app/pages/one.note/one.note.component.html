@@ -1,20 +1,28 @@
 <div id="body">
-    <div id="note">
+    <form (ngSubmit)="onSubmit()">
         <div class="container">
-            <input id="header" type="text" [value]="note.header" [readonly]="isReadOnly">
+            <input id="header" type="text" [(ngModel)]="note.header" name="header" [readonly]="isReadOnly">
         </div>
+
         <div class="container">
             <div>Updated: {{ note.created }}</div>
         </div>
+
         <div class="container">
-            <textarea id="notes" type="text" [value]="note.notes" [readonly]="isReadOnly"></textarea>
+            <textarea id="notes" [(ngModel)]="note.notes" name="notes" [readonly]="isReadOnly"></textarea>
         </div>
+    </form>
+
+    <div class="container">
+        <button *ngIf="isReadOnly" (click)="isReadOnly = !isReadOnly">Edit</button>
     </div>
     <div class="container">
-        <button>Edit</button>
-    </div>
-    <div class="container">
-        <button>Save changes</button>
-        <button>Discard changes</button>
+        <button *ngIf="!isReadOnly" (click)="onSubmit()">
+            Save changes
+        </button>
+        <button *ngIf="!isReadOnly" (click)="onDiscard()">
+            Discard changes
+        </button>
+
     </div>
 </div>
