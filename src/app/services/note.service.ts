@@ -33,4 +33,8 @@ export class NoteService {
   updateNote(payload: NewNote, id: string): Observable<any> {
     return this.http.put(this.request + id, payload);
   }
+
+  deleteNote(id: string): Observable<any> {
+    return this.http.delete(this.request + id);
+  }
 }

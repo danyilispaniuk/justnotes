@@ -1,18 +1,25 @@
 <div id="body">
-    <div id="notepad">
+    <form id="notepad" (ngSubmit)="onSubmit()">
         <div class="container">
-            <input id="notepad-name" type="text" [value]="notepad.name" [readonly]="isReadOnly">
+            <input id="notepad-name" type="text" [(ngModel)]="notepad.name" name="name" [readonly]="isReadOnly">
         </div>
-        <div class="container">
-            <button>Edit</button>
-        </div>
-        <div class="container">
-            <button>Save changes</button>
-            <button>Discard changes</button>
-        </div>
-        <div class="container">
-            <div>Updated: {{ notepad.updated }}</div>
-        </div>
+    </form>
+    <div class="container">
+        <button *ngIf="isReadOnly" (click)="isReadOnly = !isReadOnly">Edit</button>
+    </div>
+    <div class="container">
+        <button *ngIf="!isReadOnly" (click)="onSubmit()">
+            Save changes
+        </button>
+        <button *ngIf="!isReadOnly" (click)="onDiscard()">
+            Discard changes
+        </button>
+        <button *ngIf="!isReadOnly" (click)="onDelete()">
+            Delete
+        </button>
+    </div>
+    <div class="container">
+        <div>Updated: {{ notepad.updated }}</div>
     </div>
     <h2>Notes</h2>
     <div class="notes-grid">

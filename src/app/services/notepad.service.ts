@@ -25,4 +25,12 @@ export class NotepadService {
   createNotepad(payload: NewNotepad): Observable<any> {
     return this.http.post(this.request, payload);
   }
+
+  updateNotepad(payload: NewNotepad, id: string): Observable<any> {
+    return this.http.put(this.request + id, payload);
+  }
+
+  deleteNotepad(id: string): Observable<any> {
+    return this.http.delete(this.request + id);
+  }
 }

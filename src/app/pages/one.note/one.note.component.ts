@@ -90,7 +90,24 @@ export class OneNoteComponent {
   } 
 
   onDiscard(): void {
-    this.note = { ...this.oldNote };
+    this.note = { ...this.oldNote }
     this.isReadOnly = !this.isReadOnly
+  }
+
+  onDelete(): void {
+    this.noteService.deleteNote(this.noteId).subscribe({
+      next: response => {
+        console.log("Success")
+        this.router.navigate(['']);
+      },
+      error: err => { 
+        console.log("Error occured")
+        if (err.status === 400 && err.error?.message) {
+          console.log("ERROR: ", err.error.message);
+        } else {
+          console.log("UNEXPECTED ERROR: ", err.error.message);
+        }
+      }
+    });
   }
 }
