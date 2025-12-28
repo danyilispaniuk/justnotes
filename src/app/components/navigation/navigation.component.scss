@@ -20,3 +20,47 @@
   font-size: 1.5em;
   text-align: center;
 }
+
+
+
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.card {
+  background: #e9e9e9;
+  color: rgb(0, 0, 0);
+  padding: 12px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.note-card {
+  border-left: 4px solid #4caf50;
+}
+
+.notepad-card {
+  border-left: 4px solid #2196f3;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 1.1em;
+}
+
+.card p {
+  font-size: 0.9em;
+  opacity: 0.9;
+}
+
+.card small {
+  opacity: 0.6;
+}
+

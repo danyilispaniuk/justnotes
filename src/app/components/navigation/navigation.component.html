@@ -12,5 +12,40 @@
     <a href="/new_note" routerLink="/new_note" class="btn">
       <div class="nav-text">New note</div>
     </a>
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      (input)="onSearch()"
+      placeholder="Search..."
+    >
+
+
   </nav>
 </div>
+  <div>
+    <div class="results">
+
+      <!-- NOTES -->
+      <div class="card note-card" *ngFor="let note of notesRes">
+        <a class="note-link"
+          [routerLink]="['/note/', note.id]"
+          [attr.href]="'/note/' + note.id">
+          <h3>{{ note.header }}</h3>
+          <p>{{ note.notes | slice:0:80 }}...</p>
+          <small>Updated: {{ note.updated }}</small>
+        </a>
+      </div>
+      <span></span>
+      <!-- NOTEPADS -->
+      <div class="card notepad-card" *ngFor="let notepad of notepadsRes">
+        <a class="note-link"
+        [routerLink]="['/notepad/', notepad.id]"
+        [attr.href]="'/notepad/' + notepad.id">
+        <h3>{{ notepad.name }}</h3>
+        <small>Updated: {{ notepad.updated }}</small>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
